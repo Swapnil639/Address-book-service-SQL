@@ -182,3 +182,71 @@ mysql> select * from address_book order by firstName;
 +-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
 3 rows in set (0.04 sec)
 
+----------------------------------------------
+UC9 -> Alter address book to add name and type
+----------------------------------------------
+mysql> alter table address_book add bookName VARCHAR(20) not null ,add contactType VARCHAR(30) not null;
+ERROR 1060 (42S21): Duplicate column name 'bookName'
+mysql> select * from address_book;
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             | bookName | conatctType |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com |          |             |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |          |             |
+| Kunal     | Wahule   | Kharghar   | New Mumbai | Maharashtra | 400705 |     99326474 | kunal789@gmail.com   |          |             |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> describe address_book;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| firstName    | varchar(20)  | NO   |     | NULL    |       |
+| lastName     | varchar(20)  | NO   |     | NULL    |       |
+| address      | varchar(150) | NO   |     | NULL    |       |
+| city         | varchar(20)  | NO   |     | NULL    |       |
+| state        | varchar(20)  | NO   |     | NULL    |       |
+| zip          | int          | NO   |     | NULL    |       |
+| phone_Number | int          | NO   |     | NULL    |       |
+| email_Id     | varchar(30)  | NO   |     | NULL    |       |
+| bookName     | varchar(20)  | NO   |     | NULL    |       |
+| conatctType  | varchar(30)  | NO   |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> alter table address_book change contactType contactType VARCHAR(30);
+Query OK, 0 rows affected (2.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             | bookName | contactType |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com |          |             |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |          |             |
+| Kunal     | Wahule   | Kharghar   | New Mumbai | Maharashtra | 400705 |     99326474 | kunal789@gmail.com   |          |             |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE address_book SET bookName = 'SW',contactType = 'Family' WHERE firstName = 'Swapnil';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book SET bookName = 'SH',contactType = ' Bussiness' WHERE firstName = 'Shubham';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book SET bookName = 'KN',contactType = 'Friends' WHERE firstName = 'Kunal';
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book;
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             | bookName | contactType |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com | SW       | Family      |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com | SH       |  Bussiness  |
+| Kunal     | Wahule   | Kharghar   | New Mumbai | Maharashtra | 400705 |     99326474 | kunal789@gmail.com   | KN       | Friends     |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
+3 rows in set (0.00 sec)
+
