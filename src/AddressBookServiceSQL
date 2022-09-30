@@ -123,3 +123,39 @@ mysql> SELECT * FROM address_book WHERE city = 'New Mumbai' or state = 'Maharash
 | Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
 +-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
 2 rows in set (0.00 sec)
+
+---------------------------------------------------------------
+UC7 -> Retrieved size of table of address book service database
+---------------------------------------------------------------
+mysql> SELECT COUNT(city) FROM address_book;
++-------------+
+| COUNT(city) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.06 sec)
+
+mysql> SELECT COUNT(state) FROM address_book;
++--------------+
+| COUNT(state) |
++--------------+
+|            2 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT city,state,COUNT(*) FROM address_book;
++--------+-------------+----------+
+| city   | state       | COUNT(*) |
++--------+-------------+----------+
+| Panvel | Maharashtra |        2 |
++--------+-------------+----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(city) and COUNT(state) FROM address_book;
++------------------------------+
+| COUNT(city) and COUNT(state) |
++------------------------------+
+|                            1 |
++------------------------------+
+1 row in set (0.02 sec)
+
