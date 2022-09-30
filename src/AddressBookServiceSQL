@@ -159,3 +159,26 @@ mysql> SELECT COUNT(city) and COUNT(state) FROM address_book;
 +------------------------------+
 1 row in set (0.02 sec)
 
+---------------------------------------------------------------------------------------
+UC8 -> Retrieve contact sorted alphabetically of table of address book service database
+---------------------------------------------------------------------------------------
+mysql> select * from address_book;
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
+| Kunal     | Wahule   | Kharghar   | New Mumbai | Maharashtra | 400705 |     99326474 | kunal789@gmail.com   |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from address_book order by firstName;
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| Kunal     | Wahule   | Kharghar   | New Mumbai | Maharashtra | 400705 |     99326474 | kunal789@gmail.com   |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+3 rows in set (0.04 sec)
+
