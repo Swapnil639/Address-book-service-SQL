@@ -103,3 +103,23 @@ mysql> SELECT * FROM address_book;
 | Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
 +-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
 2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------
+UC6 -> Retrieve contact using city or state from a table of address book service database
+-----------------------------------------------------------------------------------------
+mysql> SELECT * FROM address_book WHERE city = 'New Mumbai';
++-----------+----------+---------+------------+-------------+--------+--------------+----------------------+
+| firstName | lastName | address | city       | state       | zip    | phone_Number | email_Id             |
++-----------+----------+---------+------------+-------------+--------+--------------+----------------------+
+| Shubham   | Ghule    | Nerul   | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
++-----------+----------+---------+------------+-------------+--------+--------------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM address_book WHERE city = 'New Mumbai' or state = 'Maharashtra';
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| firstName | lastName | address    | city       | state       | zip    | phone_Number | email_Id             |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+| Swapnil   | Patil    | New Panvel | Panvel     | Maharashtra | 410206 |     92382447 | swapnil123@gmail.com |
+| Shubham   | Ghule    | Nerul      | New Mumbai | Maharashtra | 400614 |     98467364 | shubham456@gmail.com |
++-----------+----------+------------+------------+-------------+--------+--------------+----------------------+
+2 rows in set (0.00 sec)
