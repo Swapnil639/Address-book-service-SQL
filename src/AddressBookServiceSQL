@@ -250,3 +250,30 @@ mysql> SELECT * FROM address_book;
 +-----------+----------+------------+------------+-------------+--------+--------------+----------------------+----------+-------------+
 3 rows in set (0.00 sec)
 
+----------------------------------------------
+UC10->Ability to get number of contact persons
+----------------------------------------------
+mysql> select count(contactType) from address_book where contactType='Family';
++--------------------+
+| COUNT(contactType) |
++--------------------+
+|                  1 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(contactType) from address_book WHERE contactType='Friends';
++--------------------+
+| COUNT(contactType) |
++--------------------+
+|                  1 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT COUNT(contactType) FROM address_book WHERE contactType=' Bussiness';
++--------------------+
+| COUNT(contactType) |
++--------------------+
+|                  1 |
++--------------------+
+1 row in set (0.00 sec)
+
